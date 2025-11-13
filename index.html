@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Centered Button</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      text-decoration: none;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, #140020, #070010 50%, #000);
+      color: #e4dfff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    /* Fade-in animation for the body */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Button Styles */
+    button {
+      background: linear-gradient(135deg, #b26cff, #7030a0);
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 0 25px rgba(178, 108, 255, 0.3);
+      transition: 0.25s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 45px rgba(178, 108, 255, 0.7);
+    }
+
+    /* Button animation */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Adding fadeUp animation to the button */
+    button {
+      animation: fadeUp 1s ease both;
+    }
+
+    /* Fade-out effect for the whole body */
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
+    /* Class for fade-out */
+    .fade-out {
+      animation: fadeOut 2s forwards;
+    }
+
+  </style>
+</head>
+<body>
+
+  <button onclick="checkPassword()">Click Me</button>
+
+  <script>
+    function checkPassword() {
+      // Prompt the user for the password
+      const password = prompt("Bruh, password para ma access....\nHint:  tte");
+
+      // Convert both the entered password and the correct password to lowercase for case-insensitive comparison
+      if (password.toLowerCase() === "ett") {
+        // If correct, add the fade-out class to start the fade-out animation for the whole page
+        document.body.classList.add("fade-out");
+
+        // After the fade-out animation is complete (2 seconds), redirect to the next page
+        setTimeout(function() {
+          window.location.href = "fare_well.html";
+        }, 2000); // 2000ms is the duration of the fade-out animation
+      } else {
+        // If incorrect, show an alert
+        alert("mali na, hahays");
+      }
+    }
+  </script>
+
+</body>
+</html>

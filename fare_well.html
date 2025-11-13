@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Ett | Francis Padinit</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+body {
+  background: radial-gradient(circle at top left, #140020, #070010 50%, #000);
+  color: #e4dfff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+/* Animated background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(120deg, #1a0129, #0b0017, #000, #1a0129);
+  background-size: 300% 300%;
+  animation: gradientMove 18s ease infinite;
+  z-index: -3;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Fade animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* Particles */
+.particle {
+  position: fixed;
+  border-radius: 50%;
+  opacity: 0.25;
+  animation: floatUp linear infinite;
+  z-index: -2;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(20, 0, 40, 0.45);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 10%;
+  z-index: 1000;
+  animation: fadeDown 0.9s ease both;
+}
+
+header h1 {
+  font-size: 1.7rem;
+  color: #cdbdff;
+  text-shadow: 0 0 18px #b26cff, 0 0 30px #6f42c1;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+nav a {
+  color: #cfc9ff;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+nav a:hover {
+  color: #b26cff;
+  text-shadow: 0 0 14px #b26cff;
+}
+
+/* Farewell section */
+.farewell {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 8vh 10%;
+  animation: fadeUp 1.2s ease both;
+}
+
+.farewell-box {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  max-width: 680px;
+  padding: 50px 40px;
+  box-shadow: 0 0 50px rgba(178, 108, 255, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.farewell-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 70px rgba(178, 108, 255, 0.45);
+}
+
+.farewell-box h2 {
+  font-size: 2.6rem;
+  background: linear-gradient(135deg, #b26cff, #7030a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  text-shadow: 0 0 18px rgba(178, 108, 255, 0.4);
+}
+
+.farewell-box p {
+  color: #d9d4ff;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 24px;
+}
+
+.signature {
+  color: #b26cff;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+button {
+  background: linear-gradient(135deg, #b26cff, #7030a0);
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(178, 108, 255, 0.3);
+  transition: 0.25s;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 45px rgba(178, 108, 255, 0.7);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: #bcaaff;
+  padding: 20px;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Animations */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  header {
+    padding: 16px 6%;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  nav ul {
+    gap: 16px;
+  }
+
+  .farewell {
+    padding: 6vh 8%;
+  }
+
+  .farewell-box {
+    padding: 40px 30px;
+  }
+
+  .farewell-box h2 {
+    font-size: 2.2rem;
+  }
+
+  button {
+    padding: 10px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 12px 5%;
+  }
+
+  .farewell {
+    padding: 4vh 6%;
+  }
+
+  .farewell-box {
+    padding: 35px 25px;
+  }
+
+  .farewell-box h2 {
+    font-size: 2rem;
+  }
+
+  button {
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 12px 4%;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  .farewell {
+    padding: 4vh 5%;
+  }
+
+  .farewell-box {
+    padding: 30px 20px;
+  }
+
+  .farewell-box h2 {
+    font-size: 1.8rem;
+  }
+
+  button {
+    padding: 8px 18px;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    padding: 16px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Ett</h1>
+  <nav>
+    <ul>
+      <!-- No menu items for now -->
+    </ul>
+  </nav>
+</header>
+
+<section id="farewell" class="farewell">
+  <div class="farewell-box">
+    <h2>for the Sydney i once knew</h2>
+    <p>
+      This is one of the hardest letters I’ve ever had to write because it’s about something I never thought I’d have to say.
+      I’ve been carrying a lot of thoughts and feelings since we ended things, and I realize that pretending nothing happened when we see each other isn’t fair — to either of us. I want to be honest, both with you and with myself, even if it’s difficult.
+      <br><br>
+      I know I hurt you by leaving, and I feel the weight of that. You were ready to be with me, and I couldn’t. That decision was mine alone, and it doesn’t change the fact that I care deeply about you and the time we shared. I’m sorry for the pain I caused, and I take responsibility for my choice.
+      <br><br>
+      Loving you has been one of the most intense and meaningful experiences of my life. We’ve shared moments that I will always treasure, and I will never forget the ways you made me feel loved and alive.
+      <br><br>
+      Our relationship at that time became complicated in ways that I can’t ignore, and as much as I love you, I realize that staying together isn’t healthy for either of us anymore. I can’t continue in a situation that leaves both of us hurt, frustrated, or unsure of where we stand. This isn’t about blame — it’s about truth. Sometimes love, no matter how fierce, isn’t enough to keep two souls together.
+      <br><br>
+      After we broke up, I met someone new, trying to fill the emptiness I felt — trying to cling to someone to numb the heartbreak. But it didn’t help. No one could replace what we had, and I realized that I needed to face my own feelings honestly. Leaving her wasn’t about her — it was about me, and the truth I had been avoiding.
+      <br><br>
+      Even though we’re no longer together, I hope we can both find peace and happiness in our own ways. I will always remember the love, the laughter, and the lessons we shared. You deserve someone who can fully be there for you, and I hope one day you find that.
+      <br><br>
+      Our love was real, beautiful, and unforgettable, but sometimes even love isn’t enough. I hope, one day, you can forgive me, and I hope you find the happiness you deserve. I’ll always remember you, and I’ll always love you, quietly, from afar.
+    </p>
+    <p class="signature">Please always take care of yourself</p>
+    <button onclick="alert('HAHAHAH HII SYDDDD if ever makita ninimo ni, gusto lng nako na i istorya sa imo hahahahaha grabi noh, awkward kayo dang it ;=; anyways, i hope nga yk, mao rana hahahah babyeeeeee')">Goodbye</button>
+  </div>
+</section>
+
+<footer>
+  <p>Francis | Till we meet again</p>
+</footer>
+
+<!-- 🎵 Background Music -->
+<audio id="bg-music" loop>
+  <source src="coldplay - sparks (lyrics).mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+/* Floating particles */
+(function createParticles() {
+  const count = 20;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 6 + 2;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.left = (Math.random() * 100) + 'vw';
+    p.style.top = (Math.random() * 100) + 'vh';
+    p.style.background = Math.random() > 0.5 ? '#b26cff' : '#7030a0';
+    p.style.animationDuration = (Math.random() * 18 + 12) + 's';
+    document.body.appendChild(p);
+  }
+})();
+
+/* Page fade transition */
+document.querySelectorAll('.fade-link').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = e.target.href;
+    document.body.style.animation = 'fadeOut 0.8s ease forwards';
+    setTimeout(() => window.location.href = target, 700);
+  });
+});
+
+/* 🎵 Background Music — plays after first click/key/scroll */
+const bgMusic = document.getElementById("bg-music");
+bgMusic.volume = 0.5;
+
+function startMusic() {
+  bgMusic.play().catch(err => console.log("Autoplay blocked:", err));
+  document.removeEventListener("click", startMusic);
+  document.removeEventListener("keydown", startMusic);
+  document.removeEventListener("scroll", startMusic);
+}
+
+// Start after user interacts once
+document.addEventListener("click", startMusic);
+document.addEventListener("keydown", startMusic);
+document.addEventListener("scroll", startMusic);
+</script>
+
+</body>
+</html>
